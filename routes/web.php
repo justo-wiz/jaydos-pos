@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
+use App\Livewire\Actions\Logout;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,9 @@ use App\Http\Controllers\admin\AdminController;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::get('/dashboard', function () {
@@ -29,7 +31,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 require __DIR__ . '/auth.php';
 
-Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+Route::middleware(['auth', 'roles:admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+    Route::get('/Logout', [AdminController::class, 'logout'])->name('admin.logout');
+    Route::get('/edit/profile', [AdminController::class, 'editprofile'])->name('admin.editprofile');
+    Route::post('/update/profile', [AdminController::class, 'UpdateProfile'])->name('admin.updateprofile');
+    Route::get('/change/password', [AdminController::class, 'ChangePassword'])->name('admin.changepassword');
+    Route::post('/password/update', [AdminController::class, 'UpdatePassword'])->name('admin.updatepassword');
+}); //end admin group middleware
+Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');

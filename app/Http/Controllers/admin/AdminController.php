@@ -14,7 +14,11 @@ class AdminController extends Controller
     public function AdminDashboard()
     {
 
-        return view('admin-views.index');
+        $notification = array(
+            'message' => 'Logged in Successfully',
+            'alert-type' => 'success'
+        );
+        return view('admin-views.index')->with($notification);
     } //end method
 
     public function logout(Request $request): RedirectResponse
@@ -25,7 +29,12 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/admin/login');
+        $notification = array(
+            'message' => 'Logged out Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect('/admin/login')->with($notification);
     } // end method
 
     public function login()
@@ -98,4 +107,5 @@ class AdminController extends Controller
         );
         return back()->with($notification);
     } //end method
+   
 }

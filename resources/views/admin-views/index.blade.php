@@ -1,6 +1,9 @@
 @extends('layouts.admin.dashboard')
 
+
 @section('content')
+
+
 <!-- begin #content -->
 
 <!-- begin breadcrumb -->

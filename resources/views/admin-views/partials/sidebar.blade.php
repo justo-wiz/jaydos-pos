@@ -22,12 +22,12 @@ $profiledata = App\Models\User::find($id);
                     </div>
                 </a>
             </li>
-           
+
         </ul>
         <!-- end sidebar user -->
         <!-- begin sidebar nav -->
         <ul class="nav">
-            
+
             <li class="has-sub active">
                 <a href="{{ route('admin.dashboard')}}">
 
@@ -67,13 +67,39 @@ $profiledata = App\Models\User::find($id);
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="material-icons">insert_drive_file</i>
-                    <span>Form Stuff <span class="label label-theme">NEW</span></span>
+                    <span>Category </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="form_elements.html">Form Elements <i class="fa fa-paper-plane text-theme"></i></a></li>
+                    <li><a href="{{ route('all.category') }}">All Categories</a></li>
+                    <li><a href="{{ route('add.category') }}">Add Category</a></li>
 
                 </ul>
             </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="material-icons">insert_drive_file</i>
+                    <span>Brand </span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{{ route('all.brand') }}">All Brand</a></li>
+                    <li><a href="{{ route('add.brand') }}">Add Brand</a></li>
+
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="material-icons">insert_drive_file</i>
+                    <span>Unit </span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{{ route('all.unit') }}">All Unit</a></li>
+                    <li><a href="{{ route('add.unit') }}">Add Unit</a></li>
+
+                </ul>
+            </li>
+
 
             <li class="has-sub">
                 <a href="javascript:;">

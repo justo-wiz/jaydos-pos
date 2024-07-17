@@ -10,11 +10,12 @@
 
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     @include('admin-views.partials.top_links')
+    
     <!-- ================== END BASE CSS STYLE ================== -->
 </head>
 <style>
     .login-cover-image {
-        background-image: url({{ asset ('backend/admin/assets/img/login-bg/login-bg-17.jpg')
+        background-image: url({{ asset ('backend/admin/assets/img/login-bg/login-bg-17.jpg');
     }})
     }
 </style>
